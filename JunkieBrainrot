@@ -1,0 +1,38 @@
+local Junkie = loadstring(game:HttpGet("https://jnkie.com/sdk/library.lua"))()
+Junkie.service = "Key hub"
+Junkie.identifier = "1000740"
+Junkie.provider = "Idk"
+
+local SentinelUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/AsuraXowner/Sentinel-Open-Source/refs/heads/main/SentinelKeySystem/Installer.lua"))()
+local AuthorizeToken = crypt.hash(tick()..tostring(math.random()), "sha256")-- This generates a unique key to prevent key bypassing. Do not modify.
+
+-- Configuration
+SentinelUI.Keys.MainTitle    = "Junkie"-- The title
+SentinelUI.Keys.MainDesc     = "Please enter your key to continue"-- The subtitle
+SentinelUI.Keys.Directory    = "KeyData" -- file name where the key saves (Change this)
+SentinelUI.Keys.Assets.Logo  = {ID='rbxassetid://86119635566201', Size=UDim2.new(0, 95, 0, 95)}-- Your logo Image ID and Image Size
+--SentinelUI.Keys.DiscordLink    = "discord server link here" -- discord server link only works if premium is true
+
+local function OnKeyVerified()
+    return
+
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-*-MACHINE-V2-67703"))()
+
+end
+
+SentinelUI.Initialize({
+    KeyLink = Junkie.get_key_link(),
+    Token = AuthorizeToken,
+    MainLoader = OnKeyVerified,
+    --Keyless true, --keyless mode
+    --Premium true, --remvoes get key button and puts discord link
+    Function = function(userInput)
+        getgenv().SCRIPT_KEY = userInput
+        local result = Junkie.check_key(userInput)
+        if result and (result.valid or result.message == "KEY_VALID" or result.message == "KEYLESS") then
+            SentinelUI.Authorize(AuthorizeToken)
+        else
+            SentinelUI.Fail()
+        end
+    end
+})
