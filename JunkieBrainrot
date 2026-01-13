@@ -16,7 +16,7 @@ SentinelUI.Keys.Assets.Logo  = {ID='rbxassetid://86119635566201', Size=UDim2.new
 local function OnKeyVerified()
     return
 
-loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-*-MACHINE-V2-67703"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/danger634/Brainrot/refs/heads/main/KeyScByme"))()
 
 end
 
