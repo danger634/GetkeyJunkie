@@ -7,11 +7,11 @@ local SentinelUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/As
 local AuthorizeToken = crypt.hash(tick()..tostring(math.random()), "sha256")-- This generates a unique key to prevent key bypassing. Do not modify.
 
 -- Configuration
-SentinelUI.Keys.MainTitle    = "Junkie"-- The title
+SentinelUI.Keys.MainTitle    = "Junkie Zhypers Key"-- The title
 SentinelUI.Keys.MainDesc     = "Please enter your key to continue"-- The subtitle
 SentinelUI.Keys.Directory    = "KeyData" -- file name where the key saves (Change this)
 SentinelUI.Keys.Assets.Logo  = {ID='rbxassetid://86119635566201', Size=UDim2.new(0, 95, 0, 95)}-- Your logo Image ID and Image Size
---SentinelUI.Keys.DiscordLink    = "discord server link here" -- discord server link only works if premium is true
+--SentinelUI.Keys.DiscordLink    = "https://discord.gg/bZyMGmjqUe" -- discord server link only works if premium is true
 
 local function OnKeyVerified()
     return
