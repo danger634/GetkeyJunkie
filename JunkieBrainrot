@@ -1,38 +1,31 @@
-local Junkie = loadstring(game:HttpGet("https://jnkie.com/sdk/library.lua"))()
-Junkie.service = "Key hub"
-Junkie.identifier = "1000740"
-Junkie.provider = "Idk"
+local Arqel = loadstring(game:HttpGet("https://raw.githubusercontent.com/Cobru1/expert-octo-doodle/refs/heads/main/ArqelUi.luau"))()
 
-local SentinelUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/AsuraXowner/Sentinel-Open-Source/refs/heads/main/SentinelKeySystem/Installer.lua"))()
-local AuthorizeToken = crypt.hash(tick()..tostring(math.random()), "sha256")-- This generates a unique key to prevent key bypassing. Do not modify.
+Arqel.Appearance.Title = "Junkie"
+Arqel.Appearance.Icon = "rbxassetid://134697043118282"
+Arqel.Links.Discord = "https://discord.gg/bZyMGmjqUe"
+Arqel.Storage.FileName = "Jnkie_key"
 
--- Configuration
-SentinelUI.Keys.MainTitle    = "Junkie Zhypers Key"-- The title
-SentinelUI.Keys.MainDesc     = "Please enter your key to continue"-- The subtitle
-SentinelUI.Keys.Directory    = "KeyData" -- file name where the key saves (Change this)
-SentinelUI.Keys.Assets.Logo  = {ID='rbxassetid://86119635566201', Size=UDim2.new(0, 95, 0, 95)}-- Your logo Image ID and Image Size
---SentinelUI.Keys.DiscordLink    = "https://discord.gg/bZyMGmjqUe" -- discord server link only works if premium is true
 
-local function OnKeyVerified()
-    return
+
+Arqel.Theme.Accent = Color3.fromRGB(110, 60, 255)
+Arqel.Theme.AccentHover = Color3.fromRGB(130, 90, 255)
+Arqel.Theme.Background = Color3.fromRGB(10, 10, 20)
+Arqel.Theme.Header = Color3.fromRGB(15, 15, 30)
+Arqel.Theme.Input = Color3.fromRGB(20, 20, 40)
+Arqel.Theme.Text = Color3.fromRGB(255, 255, 255)
+Arqel.Theme.TextDim = Color3.fromRGB(160, 160, 200)
+Arqel.Theme.Success = Color3.fromRGB(0, 220, 180)
+Arqel.Theme.Error = Color3.fromRGB(255, 70, 90)
+Arqel.Theme.StatusIdle = Color3.fromRGB(120, 100, 200)
+
+
+
+
+
+Arqel:LaunchJunkie({
+    Service = "key hub",
+    Identifier = "1000740",
+    Provider = "idk"
+})
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/danger634/Baseplate-/refs/heads/main/KeySystem"))()
-
-end
-
-SentinelUI.Initialize({
-    KeyLink = Junkie.get_key_link(),
-    Token = AuthorizeToken,
-    MainLoader = OnKeyVerified,
-    --Keyless true, --keyless mode
-    --Premium true, --remvoes get key button and puts discord link
-    Function = function(userInput)
-        getgenv().SCRIPT_KEY = userInput
-        local result = Junkie.check_key(userInput)
-        if result and (result.valid or result.message == "KEY_VALID" or result.message == "KEYLESS") then
-            SentinelUI.Authorize(AuthorizeToken)
-        else
-            SentinelUI.Fail()
-        end
-    end
-})
